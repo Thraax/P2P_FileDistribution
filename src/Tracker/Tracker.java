@@ -33,7 +33,6 @@ public class Tracker extends Thread {
             User newUser = new User();
             newUser.setUserName(userName);
             newUser.setPassword(password);
-            newUser.setActive();
             usersList.add(newUser);
 
             return true;
@@ -47,8 +46,7 @@ public class Tracker extends Thread {
 
         for (int i = 0; i < usersList.size(); i++) {
 
-            if (usersList.get(i).getUserName().equals(userName) && usersList.get(i).getPassword().equals(password)
-                &&!usersList.get(i).getActive()) {
+            if (usersList.get(i).getUserName().equals(userName) && usersList.get(i).getPassword().equals(password)) {
                 return true;
             }
 
@@ -186,13 +184,13 @@ class User {
 
     private String userName;
     private String password;
-    private boolean isActive;
+
 
     public User() {
 
         userName = "";
         password = "";
-        isActive = false;
+
     }
 
     public String getUserName() {
@@ -211,12 +209,6 @@ class User {
         this.password = password;
     }
 
-    public void setActive(){
-        isActive = true;
-    }
 
-    public boolean getActive(){
-        return isActive;
-    }
 
 }
